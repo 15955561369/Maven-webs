@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.TicketsMapper"><!--代理开发模式 -->
+
+    <!--该mapper映射到mayikt_users表 -->
+    <!--select语句 -->
+    <select id="getAllTickets" resultType="Entity.TicketEntity"> <!--查询结果的返回类型(如果有包名，需要加上包名) -->
+        select * from tickets
+    </select>
+
+    <!--根据id查询,传递String类型参数 -->
+    <select id="getById" parameterType="String" resultType="Entity.TicketEntity">
+        select * from tickets where id=#{id} <!-- #{ }传递参数,自动防止注入攻击-->
+    </select>
+
+    <!--插入数据:传递多个参数-->
+    <insert id="addTicket" parameterType="Entity.TicketEntity">
+        INSERT INTO `mybatis`.`tickets` (`id`, `departure_point`, `departure_time`, `arrive_point`, `arrive_time`, `fare`)
+            VALUES (#{id}, #{departure_point}, #{departure_time}, #{arrive_point},#{arrive_time}, #{fare});
+    </insert>
+
+    <!-- 删除数据 -->
+    <delete id="deleteById" parameterType="String">
+        delete from tickets where id=#{id}
+    </delete>
+
+    <!-- 修改数据 -->
+    <update id="updateTicket" parameterType="Entity.TicketEntity">
+        UPDATE `mybatis`.`tickets`
+            SET `departure_point` = #{departure_point}, `departure_time` = #{departure_time}, `arrive_point` =#{arrive_point}, `arrive_time` = #{arrive_time}, `fare` = #{fare} WHERE `id` = #{id};
+    </update>
+
+    <!--多条件查询 -->
+    <select id="getByParams" resultType="Entity.TicketEntity">
+        select * from tickets where departure_point=#{departure_point} and  arrive_point=#{arrive_point};
+    </select>
+
+    <!--动态SQL语句 -->
+    <select id="dynamicSQL" resultType="Entity.TicketEntity">
+        select * from tickets
+        <where>
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="departure_point!=null and departure_point!='' ">
+                and departure_point=#{departure_point}
+            </if>
+            <if test="arrive_point!=null and arrive_point!='' ">
+                and arrive_point=#{arrive_point}
+            </if>
+        </where>
+    </select>
+</mapper>
