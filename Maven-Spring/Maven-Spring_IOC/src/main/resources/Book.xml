@@ -3,4 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="bookEntity" class="Entity.BookEntity">
+        <property name="bookName" value="假如给我三天光明"></property> <!--默认调用Setter方法-->
+        <property name="bookPrice">
+            <null></null>
+        </property> <!--注入空值-->
+    </bean>
 </beans>

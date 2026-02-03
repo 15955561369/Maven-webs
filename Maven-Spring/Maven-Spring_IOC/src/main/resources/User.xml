@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--Spring框架配置-->
+    <bean id="userEntity" class="Entity.UserEntity"></bean>
 
-    <!--beans对象配置-->
-    <bean id="userEntity" class="Entity.UserEntity"></bean><!--对应UserEntity对象-->
 </beans>

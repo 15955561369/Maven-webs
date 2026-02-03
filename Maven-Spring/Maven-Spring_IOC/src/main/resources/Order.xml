@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--beans对象配置-->
-    <bean id="userEntity" class="Entity.UserEntity"></bean><!--对应UserEntity对象-->
+    <bean id="orderEntity" class="Entity.OrderEntity">
+        <constructor-arg name="orderId" value="D0001"></constructor-arg>
+        <constructor-arg name="orderDate" value="2026.2.3"></constructor-arg>
+    </bean>
 </beans>
