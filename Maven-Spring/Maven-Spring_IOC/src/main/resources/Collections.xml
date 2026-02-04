@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--配置公共部分-->
+    <util:list id="list">
+        <value>list01</value>
+        <value>list02</value>
+    </util:list>
+
+    <bean id="collections" class="Collections.Collections">
+        <!--注入array-->
+        <property name="array">
+            <array>
+                <value>array01</value>
+                <value>array02</value>
+            </array>
+        </property>
+        <!--注入list-->
+        <property name="list" ref="list"/>
+        <!--注入map-->
+        <property name="map">
+            <map>
+                <entry key="key01" value="value01"></entry>
+                <entry key="key02" value="value02"></entry>
+            </map>
+        </property>
+        <!--注入set-->
+        <property name="set">
+            <set>
+                <value>set01</value>
+                <value>set02</value>
+            </set>
+        </property>
+    </bean>
+</beans>

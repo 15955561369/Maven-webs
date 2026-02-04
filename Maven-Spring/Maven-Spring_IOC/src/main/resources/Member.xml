@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--内部属性注入bean对象 很少使用-->
+<!--    <bean id="memberEntity" class="Entity.MemberEntity">-->
+<!--        <property name="name" value="Yz"></property>-->
+<!--        <property name="address" value="西安"></property>-->
+<!--        <property name="department">-->
+<!--            <bean class="Entity.DepartmentEntity">-->
+<!--                <property name="departmentName" value="西北工业大学"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--另一种写法：级联注入 使用较多，需要写getter方法-->
+    <bean id="memberEntity" class="Entity.MemberEntity">
+        <property name="name" value="Yz"></property>
+        <property name="address" value="西安"></property>
+        <property name="department.departmentName" value="西北工业大学"></property>
+    </bean>
+</beans>
