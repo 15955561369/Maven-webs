@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!--Spring生命周期-->
+        <bean id="lifeCycle" class="Entity.LifeCycle" init-method="init" destroy-method="destroy"><!--配置初始化和销毁方法，自动执行-->
+            <property name="name" value="Yz"><!--属性赋值-->
+            </property>
+        </bean>
+        <!--如果有Bean后置处理器，也要写bean标签-->
+        <bean id="postProcessor" class="Entity.PostProcessor"></bean>
+</beans>

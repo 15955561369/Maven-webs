@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--Bean的自动装配 byName方式,Bean对象中的属性名要和id名相同-->
+<!--    <bean id="memberEntity" class="Entity.MemberEntity" autowire="byName">-->
+<!--    </bean>-->
+<!--    <bean id="department" class="Entity.DepartmentEntity">-->
+<!--        <property name="departmentName" value="教育部门"></property>-->
+<!--    </bean>-->
+
+    <!--Bean的自动装配 byType方式，要求类型和Bean对象属性的类型相同且不能有多个，id可以不一样-->
+    <bean id="memberEntity" class="Entity.MemberEntity" autowire="byType">
+    </bean>
+    <bean id="department1" class="Entity.DepartmentEntity">
+        <property name="departmentName" value="教育部门"></property>
+    </bean>
+</beans>

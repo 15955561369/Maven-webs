@@ -16,11 +16,11 @@ public class BookEntity {
         this.bookName = bookName;
     }
 
-    @Override
-    public String toString() {
-        return "BookEntity{" +
-                "bookName='" + bookName + '\'' +
-                ", bookPrice=" + bookPrice +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "BookEntity{" +
+//                "bookName='" + bookName + '\'' +
+//                ", bookPrice=" + bookPrice +
+//                '}';
+//    }
 }
