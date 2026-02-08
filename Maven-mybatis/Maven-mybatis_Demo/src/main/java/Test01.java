@@ -20,7 +20,7 @@ public class Test01 {
 //        List<UserEntity> userEntities = sqlSession.selectList("userMapper.getByUsers", UserEntity.class);
 //        System.out.println(userEntities);
         //代理开发模式
-        usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+        usersMapper mapper = sqlSession.getMapper(usersMapper.class);//传入代理接口
         List<UserEntity> userEntities = mapper.getByUsers();
         System.out.println(userEntities);
         sqlSession.close();
