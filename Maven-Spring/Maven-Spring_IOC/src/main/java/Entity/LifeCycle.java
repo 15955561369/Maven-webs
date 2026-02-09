@@ -14,9 +14,16 @@ public class LifeCycle {
         this.name = name;
     }
 
+    /**
+     * 设置初始化方法
+     */
     public void init(){
         System.out.println("【Spring生命周期-Step3：初始化】");
     }
+
+    /**
+     * 设置销毁方法
+     */
     public void destroy(){
         System.out.println("【Spring生命周期-Step5：销毁对象】");
     }

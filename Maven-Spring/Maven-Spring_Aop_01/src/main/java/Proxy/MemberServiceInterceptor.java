@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 public class MemberServiceInterceptor implements MethodInterceptor {
     /**
      * cglib动态代理，实现MethodInterceptor接口。重写intercept方法，执行被代理方法时会回调到此方法。
-     * @param o
+     * @param o cglib生成的代理类
      * @param method 被代理方法（底层通过反射获取）
      * @param objects 传递方法参数
      * @param methodProxy

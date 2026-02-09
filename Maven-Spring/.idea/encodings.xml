@@ -3,8 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Maven-Spring_01/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Maven-Spring_01/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop_01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop_01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop_02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Maven-Spring_Aop_02/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Maven-Spring_IOC/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Maven-Spring_IOC/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

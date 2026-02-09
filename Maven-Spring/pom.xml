@@ -11,7 +11,8 @@
     <modules>
         <module>Maven-Spring_01</module>
         <module>Maven-Spring_IOC</module>
-        <module>Maven-Spring_Aop</module>
+        <module>Maven-Spring_Aop_01</module>
+        <module>Maven-Spring_Aop_02</module>
     </modules>
 
     <properties>

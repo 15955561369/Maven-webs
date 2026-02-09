@@ -18,7 +18,7 @@ public class Dom4j {
      * @throws DocumentException
      */
     public String getClassPath() throws DocumentException {
-        //从类路径根target/classes读取文件Spring.xml
+        //从类路径根target/classes读取文件.xml
         InputStream xmlFile = this.getClass().getResourceAsStream("/User.xml");
         SAXReader saxReader = new SAXReader();//调用dom4j
         Document document = saxReader.read(xmlFile);
