@@ -7,15 +7,49 @@
   <version>1.0-SNAPSHOT</version>
   <name>Maven-SpringMVC Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>Maven-SpringMVC</finalName>
-  </build>
+
+    <properties>
+        <!-- 设置项目的文件编码为 UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- 整合springmvc框架依赖  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.10.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--加载Maven的插件Tomcat7-->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>85</port>
+                    <path>/</path>
+                    <ignorePackaging>true</ignorePackaging>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <systemProperties>
+                        <file.encoding>UTF-8</file.encoding>
+                    </systemProperties>
+
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
