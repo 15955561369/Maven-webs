@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis的配置文件 -->
+<configuration>
+
+    <settings>
+        <!-- 打印sql日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- mysql连接信息 -->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis?serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="zhang159357"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--添加每张表的mapper映射 -->
+    <mappers>
+        <mapper resource="Mapper/ticketsMapper.xml"/>
+    </mappers>
+
+</configuration>
