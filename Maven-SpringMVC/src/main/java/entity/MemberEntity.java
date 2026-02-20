@@ -5,6 +5,15 @@ public class MemberEntity {
     private String password;
     private MemberEntityInfo memberEntityInfo;
 
+    public MemberEntity(String name, String password) {
+        this.password = password;
+        this.name = name;
+    }
+
+    public MemberEntity() {//json进行反序列创建出对象时需要用到无参构造方法
+
+    }
+
     public MemberEntityInfo getMemberEntityInfo() {
         return memberEntityInfo;
     }

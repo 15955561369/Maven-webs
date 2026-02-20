@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 * */
 
 @Configuration //表示配置文件
-@EnableWebMvc//先开启mvc
+@EnableWebMvc//开启mvc，接收json数据
 @ComponentScan("controller")//扫描包controller下所有的控制器类，添加到IOC容器中
 public class SpringMVCConfig {
 

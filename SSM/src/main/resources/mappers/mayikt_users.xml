@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.Mayikt_users"><!--代理开发模式 -->
+    <!--查询所有用户-->
+    <select id="getUsers" resultType="entity.UserEntity">
+        select * from mayikt_users
+    </select>
+    <!--查询单个用户-->
+    <select id="findById" parameterType="Integer" resultType="entity.UserEntity">
+        select * from mayikt_users where id=#{id}
+    </select>
+    <!--添加一个用户-->
+    <insert id="insertUser" parameterType="entity.UserEntity">
+        INSERT INTO `ssm`.`mayikt_users` (`id`, `name`, `age`, `addres`)
+            VALUES (null,#{name},#{age},#{addres});
+    </insert>
+    <!--修改一个用户-->
+    <update id="updateUser" parameterType="entity.UserEntity">
+        UPDATE `ssm`.`mayikt_users` SET `name` = #{name}, `age` = #{age}, `addres` = #{addres} WHERE `id` = #{id};
+    </update>
+    <!--删除一个用户-->
+    <delete id="deleteUser" parameterType="Integer">
+        delete from mayikt_users where id=#{id}
+    </delete>
+</mapper>

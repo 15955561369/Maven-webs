@@ -32,18 +32,28 @@ url地址栏参数名称为数组名，同时传入多个参数即可。
 4) 集合类型：
 和数组类型相似，不过需要多加一个@RequestParam注解。
 #### 接收json数据（使用最多）
-1) 以实体类的方式：
+1) 以实体类的方式：（常用）  
 在config配置类中先开启mvc，@EnableWebMvc。然后导入依赖\<dependency>  
    \<groupId>com.fasterxml.jackson.core\</groupId>  
    \<artifactId>jackson-databind\</artifactId>  
    \<version>2.9.0\</version>  
    \</dependency>
-2) 以Map的方式
+2) 以Map的方式：
+   json数据中key为Map的key，v为Map的value。
+   需要注意json数据value与Map集合value类型保持一致否则报错。
 3) 以List的方式
+#### 响应json数据
+在方法上添加注解@ResponseBody就表示此方法返回json数据，不管该方法返回类型是什么，都会自动序列化为json数据进行响应。  
+为了避免每个方法上都添加注解造成的繁琐，可以在控制器类Controller的开头添加@RestController注解，
+底层自动添加@Controller和@ResponseBody，表示所有的方法都会返回json数据。
+### restful接口
+restful是一种接口风格，并不是协议或者规范。
+例如在做增删改查时，需要编写add、delete、update、select四种接口，每种接口还有其请求方式，显得不美观。
+而在restful接口里，只需编写user这一个接口，通过请求方式GET/POST/PUT/DELETE来区别功能。
 ### 常见问题
 1) 控制台输出乱码：
     先将整个项目文件设置为UTF-8编码，pom.xml中添加  
    \<properties>  
-   \<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+   \<project.build.sour ceEncoding>UTF-8</project.build.sourceEncoding>  
    \<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
    \</properties>。然后打开运行配置，设置VM选项为-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8。最后将idea控制台的编码设置为UTF-8输出即可。

@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,10 +16,29 @@ import java.util.List;
 /**
  * 业务逻辑层
  */
-@Service //表示将该类作为service注入到IOC中
 public class UserService {
-    @Autowired //去IOC容器中查找mayikt_users然后自动装填
     private Mayikt_users mayikt_users;
+    private SqlSession sqlSession;
+
+    /**
+     * 无参构造函数，每次new出UserService时都会自行得到mayikt_users对象
+     *
+     * @throws IOException
+     */
+    public UserService() {
+        try {
+            //加载Mybatis配置文件(自动去resources下查找)
+            InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            //获取sqlSession
+            sqlSession = sqlSessionFactory.openSession();
+            //代理开发模式
+            mayikt_users = sqlSession.getMapper(Mayikt_users.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     //查询所有用户
     public List<UserEntity> getUsers() {
@@ -37,10 +55,10 @@ public class UserService {
      * @param userEntity
      * @return 受影响行数
      */
-    @Transactional//开启事务，自动提交，遇见异常时自动回滚
     public int insertUser(UserEntity userEntity) {
         int result = mayikt_users.insertUser(userEntity);
-        int j=1/0;
+        //手动提交事务
+        sqlSession.commit();
         return result;
     }
 
@@ -49,11 +67,10 @@ public class UserService {
      * @param userEntity
      * @return 受影响行数
      */
-    @Transactional//开启事务，
     public int updateUser(UserEntity userEntity) {
         int result = mayikt_users.updateUser(userEntity);
-//        //手动提交事务
-//        sqlSession.commit();
+        //手动提交事务
+        sqlSession.commit();
         return result;
     }
 
@@ -62,11 +79,10 @@ public class UserService {
      * @param id
      * @return 受影响行数
      */
-    @Transactional//开启事务
     public int deleteUser(Integer id) {
         int result = mayikt_users.deleteUser(id);
-//        //手动提交事务
-//        sqlSession.commit();
+        //手动提交事务
+        sqlSession.commit();
         return result;
     }
 }
